@@ -1,5 +1,5 @@
 {
-    "name": "makecode_tutorials_3",
+    "name": "makecode-tutorials",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -8,7 +8,19 @@
     "files": [
         "main.blocks",
         "main.ts",
-        "README.md"
+        "README.md",
+        "tutorials/lichtsirene.md",
+        "tutorials/heisserdraht.md",
+        "tutorials/maulwurf.md",
+        "tutorials/kipplicht.md",
+        "tutorials/klavier.md",
+        "tutorials/orakel.md",
+        "tutorials/stoppuhr.md",
+        "tutorials/countdown.md",
+        "tutorials/wasserwaage.md",
+        "assets/images/variablen.gif",
+        "assets/images/bauplan.png",
+        "assets/images/index.gif"
     ],
     "testFiles": [
         "test.ts"
@@ -16,5 +28,5 @@
     "supportedTargets": [
         "calliopemini"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
