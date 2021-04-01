@@ -13,7 +13,11 @@
         "tutorials/heisserdraht.md",
         "tutorials/maulwurf.md",
         "tutorials/kipplicht.md",
-        "tutorials/klavier.md"
+        "tutorials/klavier.md",
+        "tutorials/orakel.md",
+        "tutorials/stoppuhr.md",
+        "tutorials/countdown.md",
+        "tutorials/wasserwaage.md"
     ],
     "testFiles": [
         "test.ts"
