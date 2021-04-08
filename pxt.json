@@ -17,7 +17,11 @@
         "tutorials/orakel.md",
         "tutorials/stoppuhr.md",
         "tutorials/countdown.md",
-        "tutorials/wasserwaage.md"
+        "tutorials/wasserwaage.md",
+        "tutorials/helligkeit.md",
+        "tutorials/feuchtigkeit.md",
+        "tutorials/temperatur.md",
+        "tutorials/blinkendesherz.md"
     ],
     "testFiles": [
         "test.ts"
