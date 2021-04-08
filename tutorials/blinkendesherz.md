@@ -3,7 +3,6 @@
 ## Introduction @unplugged
 
 Lerne die LED-Matrix zu benutzen, um ein Herz blinken zu lassen!
-Learn how to use the LEDs and make a flashing heart! 
 (Möchtest du wissen wie LEDs funktionieren? [Schau dieses Video an](https://youtu.be/qqBmvHD5bCw)).
 
 
