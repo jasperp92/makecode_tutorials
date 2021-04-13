@@ -1,12 +1,12 @@
 # Klavier
 
-## Step 1
+## Introduction @unplugged
 
 Halte den Calliope mit einer Hand am (-)–Pin. Lass verschiedene Töne erklingen,
 indem du mit einem Finger der anderen Hand einen der anderen Pins berührst.
 
 
-## Step 2 
+## Step 1
 
 Um einen Ton auf Pin 0 abzuspielen zu können, muss der Block ``||music.spiele Note||`` hinzugefügt werden.
 Lege anschließend eine Note und einen Schlag, beziehungsweise die Dauer des Tons fest.
@@ -17,7 +17,7 @@ input.onPinPressed(TouchPin.P0, function () {
 })
 ```
 
-## Step 3 
+## Step 2
 
 Wir möchte außerdem noch sehen, welche Note gerade gespielt wird, sowie eine LED dazu aufblinken lassen.  
 Wähle dazu die Blöcke ``||basic.setze RGB-LED-Farbe auf||`` und ``||basic.zeige Text||`` aus.  
@@ -31,7 +31,7 @@ input.onPinPressed(TouchPin.P0, function () {
 })
 ```
 
-## Step 4 
+## Step 3 
 
 Vermutlich hast du dich gefragt, weshalb die RGB-LED und LED-Matrix in dem Hinweis vor dem Spielen der Note angeschaltet wurden!?  
 Das hat den Grund, dass wir diese während und nicht nach dem Abspielen der Note angeschaltet haben möchten.
@@ -47,7 +47,7 @@ input.onPinPressed(TouchPin.P0, function () {
 })
 ```
 
-## Step 5
+## Step 4
 
 Fast geschafft! Jetzt wiederhole diese Schritte für die 3 weiteren Pins und ändere entsprechend die Note, den Text auf dem Bildschirm und die Farbe der RGB-LED.  
 Kleiner Tipp: Du kannst mit Strg+C und Strg+V die Blöcke ganz einfach kopieren.
@@ -83,7 +83,7 @@ input.onPinPressed(TouchPin.P1, function () {
 })
 ```
 
-## Step 6
+## Step 5
 
 Super, dein Klavier ist fertig!  
 Klicke auf ``|Herunterladen|``, um dein Programm auf deinen Calliope mini zu übertragen und Klavier zu spielen.

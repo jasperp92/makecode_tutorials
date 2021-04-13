@@ -1,5 +1,7 @@
 # Stoppuhr
 
+## Introduction @unplugged
+
 Programmiere den Calliope mini als Stoppuhr. 
 Miss dazu die Zeit vom ersten Drücken der Taste A bis zum zweiten Drücken der Taste A. 
 Zeige diese Zeit in Sekunden am Display an.

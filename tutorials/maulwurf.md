@@ -1,9 +1,8 @@
 # Maulwurfspiel
 
-Es geht darum, den
-Maulwurf so schnell wie möglich zu fangen, wenn er aus dem Loch schaut. Auf
-dem Calliope wird das Auftauchen durch die LEDs (rote Lämpchen) dargestellt. Mit
-den Knöpfen A und B fangen wir den Maulwurf.
+## Introduction @unplugged
+
+Es geht darum, den Maulwurf so schnell wie möglich zu fangen, wenn er aus dem Loch schaut. Auf dem Calliope wird das Auftauchen durch die LEDs (rote Lämpchen) dargestellt. Mit den Knöpfen A und B fangen wir den Maulwurf.
 
 ## Step 1
 

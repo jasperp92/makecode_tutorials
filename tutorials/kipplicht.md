@@ -1,13 +1,13 @@
 # Kipplicht
 
-## Step 1
+## Introduction @unplugged
 
 Lass die LED in grün leuchten, wenn der Calliope
 mini aufrecht steht.
 Wenn der Calliope mini kopfüber steht, dann soll die LED rot leuchten!
 
 
-## Step 2
+## Step 1
 
 Füge einen weiteren ``||input.Eingabe||``-Block ``||input.wenn geschüttelt||`` hinzu und wähle die noch fehlende Eingabe-Option aus.
 
@@ -18,7 +18,7 @@ input.onGesture(Gesture.LogoDown, function () {
 })
 ```
 
-## Step 3
+## Step 2
 
 Wähle nun jeweils für eine ``||input.Eingabe||`` den ``||basic.Setze RGB-LED-Farbe auf||``-Block auf die entsprechende Farbe.
 
@@ -32,7 +32,7 @@ input.onGesture(Gesture.LogoDown, function () {
 ```
 
 
-## Step 4
+## Step 3
 
 Super! Dein Kipplicht ist fertig. Du kannst gerne die Farben oder auch die Lageposition der Eingabe nach deinem Belieben ändern.
 

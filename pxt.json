@@ -21,7 +21,9 @@
         "tutorials/helligkeit.md",
         "tutorials/feuchtigkeit.md",
         "tutorials/temperatur.md",
-        "tutorials/blinkendesherz.md"
+        "tutorials/blinkendesherz.md",
+        "tutorials/niederschlag.md",
+        "tutorials/alarmanlage.md"
     ],
     "testFiles": [
         "test.ts"

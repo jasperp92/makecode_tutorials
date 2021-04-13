@@ -1,9 +1,11 @@
 # Heißer Draht
 
-Beim Spiel „Der heiße Draht“ führen die Schüler*innen einen Spielstab entlang 
+## Introduction @unplugged
+
+Beim Spiel „Der heiße Draht“ führen die Schüler_innen einen Spielstab entlang 
 einer Bahn aus Draht, ohne den Draht zu berühren. 
 Passiert es doch, wird dies durch ein Licht-oder Tonsignal gemeldet. 
-Dazu programmieren die Schüler*innen den Calliope mini.
+Dazu programmieren die Schüler_innen den Calliope mini.
 
 ## Step 1
 

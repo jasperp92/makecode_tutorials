@@ -1,5 +1,7 @@
 # Wetterstation: Helligkeit
 
+## Introduction @unplugged
+
 Wir entwickeln in diesem Teil der Wetterstation ein Helligkeitsmessgerät, dass
 die LED-Matrix je nach Helligkeit auffüllt.
 

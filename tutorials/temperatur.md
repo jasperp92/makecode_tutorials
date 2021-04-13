@@ -1,5 +1,7 @@
 # Wetterstation: Temperatur
 
+## Introduction @unplugged
+
 Wir entwickeln in dem ersten Teil der Wetterstation ein Thermometer, dass
 die RGB-LED je nach Temperatur in einer anderen Farbe aufleuchten lässt.
 
