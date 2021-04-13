@@ -2,10 +2,10 @@
 
 ## Introduction @unplugged
 
-In diesem Tutorial programmieren wir eine Alarm-Anlage, 
+In diesem Tutorial programmieren wir eine Alarmanlage, 
 die Alarm schlägt, wenn eine Aktion ausgeführt wird.
-Du kannst dir für dieses Projekt germe überlegen, durch welchen Sensor die Alarmanlage ausgelöst wird.
-In unserem Beispiel werden wir die Helligkeit des Sensor verwenden.
+Du kannst dir für dieses Projekt gerne überlegen, durch welchen Sensor die Alarmanlage ausgelöst wird.
+In unserem Beispiel werden wir den Helligkeitsensor verwenden.
 
 ## Step 1
 
@@ -16,7 +16,7 @@ Zuerst möchten wir nachschauen, wie hell es ist. Die Werte die ausgegeben werde
 zeigen wir uns diesen an, wenn wir Taste A drücken.
 - Füge aus den Eingabe-Blöcken Taste ``||input.wenn Knopf A gedrückt||`` hinzu
 - Wähle außerdem noch die ``||input.Lichtstärke||`` aus und zeige diese an, wenn **Knopf B** gedrückt wird mit ``||basic.Zeige Zahl||``
-- Lade dein Programm auf den Calliope mini herunter und drücke Taste A
+- Lade dein Programm auf den Calliope mini herunter und lese die Werte auf der LED-Matrix. Vergesse nicht Taste A zu drücken!
 
 ```blocks
 input.onButtonPressed(Button.A, function () {
@@ -30,8 +30,7 @@ input.onButtonPressed(Button.A, function () {
 
 ### Ereignis abfragen
 
-Nachdem du nachgeschaut hast wie hell es ist, können wir einen Grenzwert festlegen, 
-ab dem die Alarmanlage in einer wenn/dann-Abfrage ausgelöst wird. 
+Nachdem du nachgeschaut hast wie hell es ist, können wir einen Grenzwert festlegen, ab dem die Alarmanlage in einer wenn/dann-Abfrage ausgelöst wird. 
 - Wähle aus den Logik-Blöcken eine ``||logic.Wenn/dann||``-Abfrage aus und füge sie in die ``||basic.Dauerhaft||``-Schleife ein.
 - Füge als Bedingung ``Lichtstärke < deinen gemessenen Wert`` ein.
 Je nachdem ob die Alarmanlage ausgelöst wird, wenn es heller wird, kannst du auch ein **>** Zeichen einfügen. 
@@ -51,8 +50,9 @@ basic.forever(function () {
 
 ### Alarmanlage Scharf schalten - Variablen
 
-Die Alarmanalge funktioniert bisher schon ganz gut. Allerdings möchten wir nicht selbst den Alarm auslösen.
+Die Alarmanlage funktioniert bisher schon ganz gut. Allerdings möchten wir nicht selbst den Alarm auslösen.
 Deshalb werden wir die Alarmanlage noch erweitern, indem wir sie scharf stellen können.
+
 - Erstelle eine Variable mit dem Namen ``angeschaltet`` oder ``scharfgestellt``
 - Am Anfang soll die Alarmanlage aus sein. ``||variables.Setzte die Variable||`` im ``||basic.Start||``-Block auf ``falsch``
 
@@ -76,8 +76,9 @@ wenn sie angeschaltet ist, eine Grüne.
 
 ### verschachtelte wenn/dann Abfrage
 
-Nur wenn die Alarmanlage scharfgestellt ist und die Lichtstärke den Schwellenwert unter oder überschritten hat,
+Nur wenn die Alarmanlage scharfgestellt ist und die Lichtstärke den Schwellenwert unterschritten hat,
 dann soll sie auch Alarm schlagen. Wir können einfach zwei wenn/dann Abfragen ineinander verschachtelt.
+
 - Ziehe die erste wenn/dann Abfrage in die den Teil der Zweiten, wenn der Alarm aktiviert ist.
 
 ```blocks
