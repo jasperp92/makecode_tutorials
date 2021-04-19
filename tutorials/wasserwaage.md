@@ -44,17 +44,17 @@ basic.forever(function () {
 
 ## Step 4
 
-### Vergleiche
+### Absolute
 
 Damit die Wasserwaage auch in die andere Drehrichtung funktioniert, können wir 
-einen weiteren Vergleich mit dem negativen Winkel hinzufügen  ``Winkelx > -20``
-und diese in der Bedingung mit einem ``||logic.und||``-Block verknüpfen
+dem Betrag oder das Absolute des Winkels nehmen, welcher immer positiv ist., 
+Wähle den Block ``||math.Absolute||`` aus Mathematik aus und füge ``Winkelx`` dort ein.
 
 ```blocks
 let Winkelx = 0
 basic.forever(function () {
     Winkelx = input.rotation(Rotation.Pitch)
-    if (Winkelx < 20 && Winkelx > -20) {
+    if (Math.abs(Winkelx) < 20) {
     } else {
     }
 })
@@ -74,12 +74,11 @@ Setze diese auf grün, wenn der Calliope unter 20 Grad geneigt ist und ansonsten
 let Winkelx = 0
 basic.forever(function () {
     Winkelx = input.rotation(Rotation.Pitch)
-    if (Winkelx < 20 && Winkelx > -20) {
+    if (Math.abs(Winkelx) < 20) {
         basic.setLedColor(0x00ff00)
     } else {
         basic.setLedColor(0xff0000)
     }
-})
 })
 ```
 
@@ -94,18 +93,16 @@ auch die Neigung Y-Achse überprüft wird. Versuche es erst selbst zu lösen
 und klicke dann auf das Lämpchen, wenn du nicht mehr weiter weißt.
 
 ```blocks
-basic.forever(function () {
 let Winkelx = 0
 let Winkely = 0
 basic.forever(function () {
     Winkelx = input.rotation(Rotation.Pitch)
     Winkely = input.rotation(Rotation.Roll)
-    if (Winkelx < 20 && Winkelx > -20 && (Winkely < 20 && Winkely > -20)) {
+    if (Math.abs(Winkelx) < 20 && Math.abs(Winkely) < 20) {
         basic.setLedColor(0x00ff00)
     } else {
         basic.setLedColor(0xff0000)
     }
-})
 })
 ```
 
