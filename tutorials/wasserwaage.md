@@ -3,7 +3,7 @@
 ## Introduction @unplugged
 
 In diesem Tutorial möchten wir eine Wasserwaage mit dem eingebauten Lagesensors des Calliope mini programmieren,
-um zu prüfen, ob z.B. ein Bild z.B. gerade hängt oder dein Tisch nicht schief steht.
+um zu prüfen, ob z.B. ein Bild gerade hängt oder dein Tisch nicht schief steht.
 
 ## Step 1
 
