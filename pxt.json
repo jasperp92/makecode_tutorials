@@ -23,7 +23,8 @@
         "tutorials/temperatur.md",
         "tutorials/blinkendesherz.md",
         "tutorials/niederschlag.md",
-        "tutorials/alarmanlage.md"
+        "tutorials/alarmanlage.md",
+        "tutorials/schrittzaehler.md"
     ],
     "testFiles": [
         "test.ts"
