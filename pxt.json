@@ -25,7 +25,8 @@
         "tutorials/blinkendesherz.md",
         "tutorials/niederschlag.md",
         "tutorials/alarmanlage.md",
-        "tutorials/schrittzaehler.md"
+        "tutorials/schrittzaehler.md",
+        "tutorials/laermampel.md"
     ],
     "testFiles": [
         "test.ts"
