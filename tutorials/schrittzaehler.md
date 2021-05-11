@@ -10,8 +10,9 @@ Lagesensor des Calliope mini.
 ### Variable erstellen
 
 Als erstes erstellen wir eine Variable, um die Schritte zu hoch zu zählen.
-Lege dazu eine ``||Variables.Variable||`` an mit dem Namen ``Schritte``.
-``||variables.Setze||`` die Schritte ``||basic.beim Start||`` auf 0.
+
+- Lege dazu eine ``||Variables.Variable||`` an mit dem Namen ``Schritte``.
+- ``||variables.Setze||`` die Schritte ``||basic.beim Start||`` auf 0.
 
 ![Variablen anlegen](https://raw.githubusercontent.com/jasperp92/makecode-tutorials/master/assets/images/variablen.gif)
 

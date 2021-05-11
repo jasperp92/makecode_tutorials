@@ -1,216 +1,133 @@
-# LED Countdown
+# Countdown
 
 ## Introduction @unplugged
 
-Wir werden in diesem Tutorial die LEDs mithilfe von Schleifen der Reihe nach 
-anschalten und so einen Countdown von 25 Sekunden starten.
+In diesem Tutorial wollen wir mit dem Calliope mini einen Countdown erstellen, der eine Zahl die auf der LED-Matrix anzeigt
+herunterzählt.
 
 ## Step 1
 
-### LEDs einzeln anschalten 
+### Zahlen herunterzählen
 
-``||input.Wenn Knopf A gedrückt||`` wird, soll der Countdown gestartet werden und die LEDs angezeigt werden. 
-Wir möchte die LEDs ganz gezielt und einzeln anschalten, deshalb verwenden wir, statt der Grundlagen-Blöcke
-die ``||led.LED||``-Blöcke. Füge ``||led.zeichne x 0 y 0 ||`` ein.
+Wir fangen mit der einfachen Variante an und lassen uns nacheinander die Zahlen mit einer Pause anzeigen, wenn das Programm gestartet wird.
 
+- Wähle aus den Grundlagen den Block ``||basic.Zeige Zahl||`` und füge diesen in ``||basic.Start||`` ein.
+- Füge die Zahl ein von dem der Countdown starten soll.
+- Kopiere den Block und zähle weiter runter bis du die 0 erreichst.
+
+*Tipp: Mit Strg+C kannst du Blöcke kopieren und mit Strg+V einfügen.*
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
-    led.plot(0, 0)
-})
+basic.showNumber(3)
+basic.showNumber(2)
+basic.showNumber(1)
+basic.showNumber(0)
 ```
 
 ## Step 2
 
-### Schleifen
-Um eine Reihe LEDs anzuschalten, können wir den Block kopieren und den x Wert verändern.
-Wir können das Programm aber auch kürzen, indem wir eine Schleife verwenden.
-Klicke auf ``||loops.Schleifen||`` und wähle den Block ``||loops.für Index von 0 bis 4||`` aus.
+### Pausen
 
+Wenn du das Programm auf den Calliope mini testest, dann werden die Zahlen viel zu schnell heruntergezählt.
+Deshalb bauen wir dazwischen Pausen ein. Außerdem wollen wir eine grüne LED anschalten, um zu signalisieren, dass der Countdown abgelaufen ist.
+
+- Füge zwischen jedem Block eine 1-sekündige Pause ein mit ``||basic.pausiere||``
+- ``||basic.Setze die RGB-LED-Farbe||`` auf grün nach dem letzten Block.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
-for (let Index = 0; Index <= 4; Index++) {
-    led.plot(0, 0)
-}
-})
-
-})
+basic.showNumber(3)
+basic.pause(1000)
+basic.showNumber(2)
+basic.pause(1000)
+basic.showNumber(1)
+basic.pause(1000)
+basic.showNumber(0)
+basic.setLedColor(0x00ff00)
 ```
 
 ## Step 3
 
-### Index zuweisen
-Der Index ist eine Variable und taucht jetzt auch unter den ``||variables.Variablen||`` auf.
-Der Index wird um einen hochgezählt von 0 bis 4.
-Um die LEDs in der Reihe x anzuschalten muss **x** der Variable ``||variables.Index||`` zugewiesen werden.  
-*Auch wenn der mini ein 5 x 5 LED-Raster hat wird in einer Reihe nur bis 4 gezählt, weil die 0 mit einbezogen wird.*
+### Variablen
 
+Wenn wir die Pausen noch nachträglich ändern wollen, dann müssten wir immer wieder neue Zahlen
+in jedes Feld einttippen. In diesem Fall können wir uns die Arbeit erleichtern und eine Variable verwenden.
+
+- Klicke auf ``||variables.Variablen||`` und erstelle eine neue Variable mit dem Namen ``Pause``.
+- ``||variables.Setze||`` die Variable bei Start auf die gewünschte Länge der Pause.
+- Füge anschließend die gleiche Variable in jede Pause ein. 
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
-for (let Index = 0; Index <= 4; Index++) {
-    led.plot(Index, 0)
-}
-})
-})
+let Pause = 1000
+basic.showNumber(3)
+basic.pause(Pause)
+basic.showNumber(2)
+basic.pause(Pause)
+basic.showNumber(1)
+basic.pause(Pause)
+basic.showNumber(0)
+basic.setLedColor(0x00ff00)
 ```
 
 ## Step 4
 
-### Countdown
-Damit daraus jetzt ein Countdown wird, müssen wir eine Pause einbauen, 
-damit die LEDs nach und nach angehen. ``||basic.Pausiere||`` 1 Sekunde in der Schleife, nach dem ``||led.Zeiche||``-Block.
-Außerdem soll nach dem Durchlauf der Schleife ein ``||music.Signalton||`` ertönen und die ``||basic.RGB-LED||`` rot leuchten.
+### Schleifen
 
+Stell dir vor wir wollen jetzt den Countdown von 100 starten. Dann müssten wir sehr oft die Blöcke kopieren und das Programm wird sehr lang.
+Mit einer Schleife können wir das Programm flexibel und kurz halten, indem sich wiederholende
+Programmelemente nur einmal dargestellt werden.
+
+- Klicke auf ``||loop.Schleifen||`` und erstelle eine neue ``||loop.x-mal wiederholen||``-Schleife
+- Füge die sich wiederholenden Blöcke ``||basic.Zeige Zahl||`` und ``||basic.pausiere||`` einmal in die Schleife ein. Die doppelten Blöcke können gelöscht werden.
 
 ```blocks
+let Pause = 1000
 for (let Index = 0; Index <= 4; Index++) {
-    led.plot(Index, 0)
-    basic.pause(1000)
+    basic.showNumber(4)
+    basic.pause(Pause)
 }
-basic.setLedColor(0xff0000)
-music.playTone(262, music.beat(BeatFraction.Whole))
+basic.setLedColor(0x00ff00)
+
 ```
 
 
 ## Step 5
 
-### Zwei Wege führen zum Ziel
-Damit jetzt in die nächste Reihe gesprungen wird, muss der Y Wert auch hochgezählt werden.
-Das kann auf zweierlei Wege geschehen: Über **eine Schleife, die bis 24 zählt** oder über eine **verschachtelte Schleife**.
-Beide Wege werden hier vorgestellt. Wir fangen mit der verschachtelten Schleife an.
-Füge außen um die erste ``||loops.Schleife||`` eine Weitere hinzu.
+### Index und Abbruchbedingung
+
+Die meisten Schleifen außer die Dauerhaft-Schleife haben eine Abbruchbedingung. In diesem Fall ist die Abbruchbedingung, wenn
+die Zahl 4 erreicht wurde. Solange erhöht die Schleife den Index, bzw. die Zahl, angefangen von 0.
+Damit die Zahl des Schleifenindexes angezeigt wird, kannst du die Variable Index
+in den Block ``||basic.Zeige Zahl||`` ziehen.
+
+*Du kannst diese sogar auch mit Rechtsklick umbennen und z.B. ``Zahl`` nennen.*
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
-    for (let Index = 0; Index <= 4; Index++) {
-        for (let Index = 0; Index <= 4; Index++) {
-            led.plot(Index, 0)
-            basic.pause(1000)
-        }
-    }
-    basic.setLedColor(0xff0000)
-    music.playTone(262, music.beat(BeatFraction.Whole))
-})
+let Pause = 1000
+for (let Index = 0; Index <= 4; Index++) {
+    basic.showNumber(Index)
+    basic.pause(Pause)
+}
+basic.setLedColor(0x00ff00)
+
+
 ```
 
 
 ## Step 6
 
-### Verschachtelte Schleife
-Falls nicht automatisch eine neue Index-Variable angelegt wurde, dann erstelle eine
-neue Variable mit dem Namen **y-Index**, damit der Index für die x Reihe nicht der gleiche ist, wie für die y-Reihe.
-Klicke mit Rechtsklick auf die ``||variables.Index-Variable||``, um diese in **x-Index** umzubennen.
+### Abbruchbedingung
 
-![index.gif](https://raw.githubusercontent.com/jasperp92/makecode-tutorials/master/assets/images/index.gif)
-
-```blocks
-input.onButtonPressed(Button.A, function () {
-    for (let yIndex = 0; yIndex <= 4; yIndex++) {
-        for (let xIndex = 0; xIndex <= 4; xIndex++) {
-            led.plot(xIndex, 0)
-            basic.pause(1000)
-        }
-    }
-    basic.setLedColor(0xff0000)
-    music.playTone(262, music.beat(BeatFraction.Whole))
-})
-```
-
-## Step 7
-
-### Verschachtelte Schleife
-Füge jetzt nur noch die Variable ``||variables.y-Index||`` in das y-Feld von ``||led.Zeichne||`` ein.
-Damit der Countdown neu startet, wenn A gedrückt wird,
-müssen wir vor dem Start der Schleife den ``||basic.Bildschirminhalt löschen||`` und 
-die ``||basic.RGB-LED ausschalten||``.  
-**Fertig ist der Countdown!** Im nächsten Schritt wird die zweite Variante vorgestellt. 
+Damit wir den Countdown nicht hoch sondern herunterzählen, können wir den Index von der Startzahl des Countdowns abziehen.
+- Erstelle dafür eine neue ``||variables.Variable||`` und benennst diese ``Startzahl``.
+- Ziehe mit ``||math.-||`` den Index von der Startzahl ab 
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
-    basic.turnRgbLedOff()
-    basic.clearScreen()
-    for (let yIndex = 0; yIndex <= 4; yIndex++) {
-        for (let xIndex = 0; xIndex <= 4; xIndex++) {
-            led.plot(xIndex, yIndex)
-            basic.pause(1000)
-        }
-    }
-    basic.setLedColor(0xff0000)
-    music.playTone(262, music.beat(BeatFraction.Whole))
-})
-```
-
-## Step 8
-
-### Countdown mit einer Schleife
-Statt zwei inneinander verschachtelte Schleifen zu verwenden, 
-kann auch eine Schleife verwendet und von 25 heruntergezählt werden. Die X und Y-Werte der LEDs 
-errechnen wir uns mathematisch. **Lösche die äußere Schleife** und zähle den Index **0 bis 24** hoch.
-Überlege wie du mathematisch auf den Index 0 bis 4 für die X und Y-Werte kommst.
-
-
-```blocks
-input.onButtonPressed(Button.A, function () {
-    basic.turnRgbLedOff()
-    basic.clearScreen()
-        for (let Index = 0; Index <= 24; Index++) {
-            led.plot(Index, Index)
-            basic.pause(1000)
-        }
-    basic.setLedColor(0xff0000)
-    music.playTone(262, music.beat(BeatFraction.Whole))
-})
-```
-
-## Step 8
-
-### Countdown mit einer Schleife
-Mit der Division des Index durch die Länge Reihe kriegen wir für die Y-Werte heraus:
-``0 / 5 = 0, 12 / 5 = 2,4, 24 / 5 = 4,8`` usw.  
-Die Nachkommastellen werden von dem ``||led.Zeige||``-Block nicht berücksichtigt und in Ganzzahlen umgewandelt.
-Wir können für das bessere Verständnis trotzdem die X-Werte ``||math.abrunden||``.
-
-```blocks
-input.onButtonPressed(Button.A, function () {
-    basic.turnRgbLedOff()
-    basic.clearScreen()
-    for (let Index = 0; Index <= 24; Index++) {
-        led.plot(Index % 5, 0)
-        basic.pause(1000)
-    }
-    basic.setLedColor(0xff0000)
-    music.playTone(262, music.beat(BeatFraction.Whole))
-})
-
-```
-
-## Step 9
-
-### Countdown mit einer Schleife
-Der Rest der überbleibt, ergibt die X-Werte:  
-``0 / 5 = 0 Rest 0, 12 / 5 = 2 Rest 2, 24 / 5 = 4 Rest 4`` usw.  
-Verwende dafür den Block ``||math.Rest von||`` aus Mathematik. 
-
-```blocks
-input.onButtonPressed(Button.A, function () {
-    basic.turnRgbLedOff()
-    basic.clearScreen()
-    for (let Index = 0; Index <= 24; Index++) {
-        led.plot(Index % 5, Math.floor(Index / 5))
-        basic.pause(1000)
-    }
-    basic.setLedColor(0xff0000)
-    music.playTone(262, music.beat(BeatFraction.Whole))
-})
-
-```
-
-```template
-input.onButtonPressed(Button.A, function () {
-	
-})
-
+let Pause = 1000
+let Startzahl = 3
+for (let Index = 0; Index <= Startzahl; Index++) {
+    basic.showNumber(Startzahl - Index)
+    basic.pause(Pause)
+}
+basic.setLedColor(0x00ff00)
 ```
 
